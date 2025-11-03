@@ -1,0 +1,80 @@
+{
+  "databases": [
+    {
+      "title": "invoices",
+      "columns": [
+        {
+          "title": "id",
+          "type": "integer",
+          "primaryKey": true
+        },
+        {
+          "title": "invoice",
+          "type": "string"
+        },
+        {
+          "title": "status",
+          "type": "string"
+        },
+        {
+          "title": "method",
+          "type": "string"
+        },
+        {
+          "title": "amount",
+          "type": "float"
+        },
+        {
+          "title": "date",
+          "type": "date"
+        }
+      ]
+    },
+    {
+      "title": "payments",
+      "columns": [
+        {
+          "title": "id",
+          "type": "integer",
+          "primaryKey": true
+        },
+        {
+          "title": "invoice",
+          "type": "string"
+        },
+        {
+          "title": "amount",
+          "type": "float"
+        },
+        {
+          "title": "date",
+          "type": "date"
+        }
+      ]
+    }
+  ],
+  "code": [
+    {
+      "title": "scripts",
+      "columns": [
+        {
+          "title": "id",
+          "type": "integer",
+          "primaryKey": true
+        },
+        {
+          "title": "name",
+          "type": "string"
+        },
+        {
+          "title": "content",
+          "type": "text"
+        },
+        {
+          "title": "created_at",
+          "type": "datetime"
+        }
+      ]
+    }
+  ]
+}

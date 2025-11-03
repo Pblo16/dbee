@@ -1,58 +1,53 @@
 <script lang="ts">
-  import CalendarIcon from "@lucide/svelte/icons/calendar";
   import HouseIcon from "@lucide/svelte/icons/house";
-  import InboxIcon from "@lucide/svelte/icons/inbox";
-  import SearchIcon from "@lucide/svelte/icons/search";
-  import SettingsIcon from "@lucide/svelte/icons/settings";
+  import CodeIcon from "@lucide/svelte/icons/chevrons-left-right";
   import * as Sidebar from "$lib/components/ui/sidebar/index.js";
+
+  interface ColumnItem {
+    title: string;
+    type?: string;
+  }
+
+  let { activeSection = "home", onSectionChange = (section: string) => {} } =
+    $props();
 
   // Menu items.
   const items = [
     {
-      title: "Home",
-      url: "#",
+      title: "Databases",
+      id: "databases",
       icon: HouseIcon,
     },
+
     {
-      title: "Inbox",
-      url: "#",
-      icon: InboxIcon,
-    },
-    {
-      title: "Calendar",
-      url: "#",
-      icon: CalendarIcon,
-    },
-    {
-      title: "Search",
-      url: "#",
-      icon: SearchIcon,
-    },
-    {
-      title: "Settings",
-      url: "#",
-      icon: SettingsIcon,
+      title: "Code",
+      id: "code",
+      icon: CodeIcon,
     },
   ];
+
+  function handleItemClick(itemId: string) {
+    onSectionChange(itemId);
+  }
 </script>
 
-<Sidebar.Root>
-  <Sidebar.Header>
-    <h1 class="text-lg font-bold">Application</h1>
-  </Sidebar.Header>
+<Sidebar.Root collapsible="none">
   <Sidebar.Content>
     <Sidebar.Group>
-      <Sidebar.GroupLabel>Application</Sidebar.GroupLabel>
       <Sidebar.GroupContent>
         <Sidebar.Menu>
-          {#each items as item (item.title)}
+          {#each items as item (item.id)}
             <Sidebar.MenuItem>
-              <Sidebar.MenuButton>
+              <Sidebar.MenuButton isActive={activeSection === item.id}>
                 {#snippet child({ props })}
-                  <a href={item.url} {...props}>
+                  <button
+                    type="button"
+                    {...props}
+                    onclick={() => handleItemClick(item.id)}
+                  >
                     <item.icon />
                     <span>{item.title}</span>
-                  </a>
+                  </button>
                 {/snippet}
               </Sidebar.MenuButton>
             </Sidebar.MenuItem>

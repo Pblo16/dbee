@@ -1,0 +1,48 @@
+{
+  "invoices": [
+    {
+      "id": 1,
+      "invoice": "INV-1001",
+      "status": "Paid",
+      "method": "Credit Card",
+      "amount": 250.75,
+      "date": "2024-01-15"
+    },
+    {
+      "id": 2,
+      "invoice": "INV-1002",
+      "status": "Pending",
+      "method": "Bank Transfer",
+      "amount": 450,
+      "date": "2024-01-20"
+    },
+    {
+      "id": 3,
+      "invoice": "INV-1003",
+      "status": "Overdue",
+      "method": "PayPal",
+      "amount": 125.5,
+      "date": "2023-12-30"
+    }
+  ],
+  "payments": [
+    {
+      "id": 1,
+      "invoice": "INV-1001",
+      "amount": 250.75,
+      "date": "2024-01-15"
+    },
+    {
+      "id": 2,
+      "invoice": "INV-1002",
+      "amount": 450,
+      "date": "2024-01-20"
+    },
+    {
+      "id": 3,
+      "invoice": "INV-1003",
+      "amount": 125.5,
+      "date": "2023-12-30"
+    }
+  ]
+}
