@@ -71,7 +71,10 @@
           {#if tab.loading}
             <Table.Row>
               <Table.Cell></Table.Cell>
-              <Table.Cell class="text-muted-foreground" colspan={tab.columns.length}>
+              <Table.Cell
+                class="text-muted-foreground"
+                colspan={tab.columns.length}
+              >
                 Cargando datos...
               </Table.Cell>
             </Table.Row>
@@ -96,7 +99,10 @@
           {:else}
             <Table.Row>
               <Table.Cell></Table.Cell>
-              <Table.Cell class="text-muted-foreground" colspan={tab.columns.length}>
+              <Table.Cell
+                class="text-muted-foreground"
+                colspan={tab.columns.length}
+              >
                 No data to display.
               </Table.Cell>
             </Table.Row>
