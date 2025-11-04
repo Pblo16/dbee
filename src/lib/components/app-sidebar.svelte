@@ -31,7 +31,7 @@
   }
 </script>
 
-<Sidebar.Root collapsible="none">
+<Sidebar.Root collapsible="none" class="h-dvh bg-background">
   <Sidebar.Content>
     <Sidebar.Group>
       <Sidebar.GroupContent>

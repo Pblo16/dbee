@@ -29,25 +29,22 @@
   }
 </script>
 
-<Tabs.Root value={active ?? undefined} class="w-full border-0">
-  <Tabs.List class="flex items-center gap-1">
+<Tabs.Root value={active ?? undefined} class="gap-0 m-0">
+  <Tabs.List class="flex items-center gap-1  ">
     {#each tabs as tab}
       <div class="flex items-center">
         <Tabs.Trigger value={tab.id} on:click={() => handleSetActive(tab.id)}>
           {tab.title}
+          <button
+            class="ml-1 text-muted-foreground hover:text-foreground"
+            title="Close"
+            on:click|stopPropagation={() => handleClose(tab.id)}
+          >
+            ×
+          </button>
         </Tabs.Trigger>
-        <button
-          class="ml-1 text-muted-foreground hover:text-foreground"
-          title="Close"
-          on:click|stopPropagation={() => handleClose(tab.id)}
-        >
-          ×
-        </button>
       </div>
     {/each}
-    <Button variant="ghost" on:click={handleChangeNext}>
-      <Plus class="bg-cyan-400 text-background rounded-full size-4" />
-    </Button>
   </Tabs.List>
 
   {#if !tabs.length}
@@ -57,13 +54,13 @@
   {/if}
 
   {#each tabs as tab}
-    <Tabs.Content value={tab.id} class="mt-3">
+    <Tabs.Content value={tab.id} class="bg-background">
       <Table.Root>
         <Table.Header>
           <Table.Row>
-            <Table.Head class="w-[60px]"></Table.Head>
+            <Table.Head class=""></Table.Head>
             {#each tab.columns as col}
-              <Table.Head class="min-w-[120px]">{col.title}</Table.Head>
+              <Table.Head class="">{col.title}</Table.Head>
             {/each}
           </Table.Row>
         </Table.Header>
@@ -88,9 +85,7 @@
           {:else if tab.rows && tab.rows.length}
             {#each tab.rows as row}
               <Table.Row>
-                <Table.Cell>
-                  <input type="checkbox" class="checkbox" />
-                </Table.Cell>
+                <Table.Cell></Table.Cell>
                 {#each tab.columns as col}
                   <Table.Cell>{row[col.title]}</Table.Cell>
                 {/each}

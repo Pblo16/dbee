@@ -18,6 +18,7 @@
     "@tauri-apps/plugin-opener": "^2",
     "clsx": "^2.1.1",
     "prettier": "^3.6.2",
+    "prettier-plugin-svelte": "^3.4.0",
     "tailwind-merge": "^3.3.1",
     "tailwind-variants": "^3.1.1",
     "tailwindcss": "^4.1.16",
@@ -36,7 +37,6 @@
     "paneforge": "^1.0.2",
     "svelte": "^5.0.0",
     "svelte-check": "^4.0.0",
-    "tailwindcss": "^4.1.14",
     "typescript": "~5.6.2",
     "vite": "^6.0.3"
   }

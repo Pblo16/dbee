@@ -34,7 +34,7 @@
 
   // Título según la sección activa
   const currentTitle = $derived(
-    activeSection === "databases" ? "Databases" : "Code"
+    activeSection === "databases" ? "Databases" : "Code",
   );
 
   function toggleItem(index: number) {
@@ -56,7 +56,9 @@
   });
 </script>
 
-<div class="h-dvh border-2 border-border relative overflow-x-hidden">
+<div
+  class="h-dvh border-r-2 border-border relative overflow-x-hidden bg-background"
+>
   <Button
     class="absolute -right-2 z-10"
     size="icon-lg"

@@ -48,11 +48,11 @@
 
   // Data derivada para el sub-sidebar según la sección activa
   const subData = $derived(
-    activeSection === "databases" ? menus.databases : menus.code
+    activeSection === "databases" ? menus.databases : menus.code,
   );
 </script>
 
-<div class="bg-background">
+<div class="bg-sidebar-accent">
   <Sidebar.Provider class="min-h-dvh flex">
     <Resizable.PaneGroup direction="horizontal">
       <AppSidebar {activeSection} onSectionChange={handleSectionChange} />
@@ -74,7 +74,7 @@
       <Resizable.Handle />
       <Resizable.Pane
         ><div class="w-full">
-          <main class="flex border-2 p-2 min-h-dvh overflow-auto">
+          <main class="flex p-2 min-h-dvh overflow-auto">
             {@render children?.()}
           </main>
         </div></Resizable.Pane
