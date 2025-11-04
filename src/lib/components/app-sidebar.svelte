@@ -1,33 +1,33 @@
 <script lang="ts">
-  import HouseIcon from "@lucide/svelte/icons/house";
-  import CodeIcon from "@lucide/svelte/icons/chevrons-left-right";
-  import * as Sidebar from "$lib/components/ui/sidebar/index.js";
+  import HouseIcon from '@lucide/svelte/icons/house'
+  import CodeIcon from '@lucide/svelte/icons/chevrons-left-right'
+  import * as Sidebar from '$lib/components/ui/sidebar/index.js'
 
   interface ColumnItem {
-    title: string;
-    type?: string;
+    title: string
+    type?: string
   }
 
-  let { activeSection = "home", onSectionChange = (section: string) => {} } =
-    $props();
+  let { activeSection = 'home', onSectionChange = (section: string) => {} } =
+    $props()
 
   // Menu items.
   const items = [
     {
-      title: "Databases",
-      id: "databases",
+      title: 'Databases',
+      id: 'databases',
       icon: HouseIcon,
     },
 
     {
-      title: "Code",
-      id: "code",
+      title: 'Code',
+      id: 'code',
       icon: CodeIcon,
     },
-  ];
+  ]
 
   function handleItemClick(itemId: string) {
-    onSectionChange(itemId);
+    onSectionChange(itemId)
   }
 </script>
 

@@ -1,49 +1,49 @@
 <script lang="ts">
-  import ChevronLeft from "@lucide/svelte/icons/chevron-left";
-  import ChevronRight from "@lucide/svelte/icons/chevron-right";
-  import Grid from "@lucide/svelte/icons/grid";
-  import * as Collapsible from "$lib/components/ui/collapsible/index.js";
-  import Button from "./ui/button/button.svelte";
-  import { openTable } from "$lib/stores/tabs";
+  import ChevronLeft from '@lucide/svelte/icons/chevron-left'
+  import ChevronRight from '@lucide/svelte/icons/chevron-right'
+  import Grid from '@lucide/svelte/icons/grid'
+  import * as Collapsible from '$lib/components/ui/collapsible/index.js'
+  import Button from './ui/button/button.svelte'
+  import { openTable } from '$lib/stores/tabs'
 
   let {
     isCollapsed = false,
-    activeSection = "databases",
+    activeSection = 'databases',
     onToggleCollapse,
     data = [],
   }: {
-    isCollapsed?: boolean;
-    activeSection?: string;
-    onToggleCollapse: () => void;
-    data?: SectionItem[];
-  } = $props();
+    isCollapsed?: boolean
+    activeSection?: string
+    onToggleCollapse: () => void
+    data?: SectionItem[]
+  } = $props()
 
   // Estado para controlar qué items están abiertos (usando el índice del item)
-  let openItems = $state<Set<number>>(new Set());
+  let openItems = $state<Set<number>>(new Set())
 
   interface ColumnItem {
-    title: string;
-    type?: string;
-    primaryKey?: boolean;
+    title: string
+    type?: string
+    primaryKey?: boolean
   }
   interface SectionItem {
-    title: string;
-    icon?: any;
-    columns?: ColumnItem[];
+    title: string
+    icon?: any
+    columns?: ColumnItem[]
   }
 
   // Título según la sección activa
   const currentTitle = $derived(
-    activeSection === "databases" ? "Databases" : "Code",
-  );
+    activeSection === 'databases' ? 'Databases' : 'Code'
+  )
 
   function toggleItem(index: number) {
     if (openItems.has(index)) {
-      openItems.delete(index);
+      openItems.delete(index)
     } else {
-      openItems.add(index);
+      openItems.add(index)
     }
-    openItems = openItems; // Trigger reactivity
+    openItems = openItems // Trigger reactivity
   }
 
   // Resetear/establecer items abiertos cuando cambia la sección activa
@@ -51,9 +51,9 @@
   // La sección "databases" se muestra por defecto (controlado por activeSection),
   // pero sus ítems permanecen colapsados.
   $effect(() => {
-    activeSection;
-    openItems = new Set();
-  });
+    activeSection
+    openItems = new Set()
+  })
 </script>
 
 <div

@@ -1,31 +1,31 @@
 <script lang="ts">
-  import * as Table from "$lib/components/ui/table/index.js";
-  import * as Tabs from "$lib/components/ui/tabs/index.js";
-  import Button from "$lib/components/ui/button/button.svelte";
-  import Plus from "@lucide/svelte/icons/plus";
+  import * as Table from '$lib/components/ui/table/index.js'
+  import * as Tabs from '$lib/components/ui/tabs/index.js'
+  import Button from '$lib/components/ui/button/button.svelte'
+  import Plus from '@lucide/svelte/icons/plus'
   import {
     openTabs,
     activeTabId,
     setActiveTab,
     closeTab,
-  } from "$lib/stores/tabs";
+  } from '$lib/stores/tabs'
 
   // Auto-subscribed stores for tabs and active tab
-  $: tabs = $openTabs;
-  $: active = $activeTabId ?? (tabs.length ? tabs[0].id : null);
+  $: tabs = $openTabs
+  $: active = $activeTabId ?? (tabs.length ? tabs[0].id : null)
 
   function handleChangeNext() {
     // optional: cycle to next tab (placeholder for the plus button for now)
-    if (!tabs.length || !active) return;
-    const idx = tabs.findIndex((t) => t.id === active);
-    const next = tabs[(idx + 1) % tabs.length]?.id;
-    if (next) setActiveTab(next);
+    if (!tabs.length || !active) return
+    const idx = tabs.findIndex((t) => t.id === active)
+    const next = tabs[(idx + 1) % tabs.length]?.id
+    if (next) setActiveTab(next)
   }
   function handleSetActive(id: string) {
-    setActiveTab(id);
+    setActiveTab(id)
   }
   function handleClose(id: string) {
-    closeTab(id);
+    closeTab(id)
   }
 </script>
 
